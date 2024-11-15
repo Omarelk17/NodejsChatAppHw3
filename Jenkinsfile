@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('CLONE GIT REPOSITORY') {
             agent {
-                label 'nodejschatapp'
+                label 'NodejsChatAppHw3'
             }
             steps {
                 checkout scm
@@ -25,7 +25,7 @@ pipeline {
  
         stage('SonarQube Analysis') {
             agent {
-                label 'nodejschatapp'
+                label 'NodejsChatAppHw3'
             }
             steps {
                 script {
@@ -41,7 +41,7 @@ pipeline {
  
         stage('BUILD-AND-TAG') {
             agent {
-                label 'nodejschatapp'
+                label 'NodejsChatAppHw3'
             }
             steps {
                 script {
@@ -53,7 +53,7 @@ pipeline {
  
         stage('POST-TO-DOCKERHUB') {    
             agent {
-                label 'nodejschatapp'
+                label 'NodejsChatAppHw3'
             }
             steps {
                 script {
@@ -67,7 +67,7 @@ pipeline {
  
         stage('DEPLOYMENT') {    
             agent {
-                label 'nodejschatapp'
+                label 'NodejsChatAppHw3'
             }
             steps {
                 sh "docker-compose down"
