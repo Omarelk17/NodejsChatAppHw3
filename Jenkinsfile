@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('CLONE GIT REPOSITORY') {
             agent {
-                label 'NodejsChatAppHw3'
+                label 'ubuntu-Appserver-2140'
             }
             steps {
                 checkout scm
@@ -25,7 +25,7 @@ pipeline {
  
         stage('SonarQube Analysis') {
             agent {
-                label 'NodejsChatAppHw3'
+                label 'ubuntu-Appserver-2140'
             }
             steps {
                 script {
@@ -41,7 +41,7 @@ pipeline {
  
         stage('BUILD-AND-TAG') {
             agent {
-                label 'NodejsChatAppHw3'
+                label 'ubuntu-Appserver-2140'
             }
             steps {
                 script {
@@ -53,7 +53,7 @@ pipeline {
  
         stage('POST-TO-DOCKERHUB') {    
             agent {
-                label 'NodejsChatAppHw3'
+                label 'ubuntu-Appserver-2140'
             }
             steps {
                 script {
@@ -67,7 +67,7 @@ pipeline {
  
         stage('DEPLOYMENT') {    
             agent {
-                label 'NodejsChatAppHw3'
+                label 'ubuntu-Appserver-2140'
             }
             steps {
                 sh "docker-compose down"
